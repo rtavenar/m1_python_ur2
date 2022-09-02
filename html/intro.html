@@ -4,8 +4,8 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <meta name="author" content="Nom de l’auteur ici" />
-  <title>Titre ici</title>
+  <meta name="author" content="Xavier André &amp; Romain Tavenard" />
+  <title>TD1 : Les types de base et les fonctions prédéfinies</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -84,15 +84,61 @@
 </head>
 <body>
 <header id="title-block-header">
-<h1 class="title">Titre ici</h1>
-<p class="subtitle">Sous-titre ici si nécessaire</p>
-<p class="author">Nom de l’auteur ici</p>
+<h1 class="title">TD1 : Les types de base et les fonctions prédéfinies</h1>
+<p class="author">Xavier André &amp; Romain Tavenard</p>
 </header>
-<h1 data-number="1" id="nom-de-section"><span class="header-section-number">1</span> Nom de section</h1>
-<p>Début de l’énoncé ici.</p>
-<h2 data-number="1.1" id="nom-de-sous-section"><span class="header-section-number">1.1</span> Nom de sous-section</h2>
-<p>Votre énoncé peut contenir des maths : <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>=</mo><mi>f</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">y = f(x)</annotation></semantics></math> comme du code :</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(x <span class="op">+</span><span class="dv">3</span>)</span></code></pre></div>
+<h1 data-number="1" id="préambule"><span class="header-section-number">1</span> Préambule</h1>
+<p>Ce semestre, il vous sera demandé de coder dans un seul fichier par sujet de TD. Typiquement, pour la séance de cette semaine, vous devrez :</p>
+<ul>
+<li>créer un répertoire <code>M1_S1_Python</code> (dans lequel vous conserverez tous vos scripts du semestre)</li>
+<li>Ouvrir le réperoire <code>M1_S1_Python</code> dans VS Code (vous avez le droit d’utiliser un autre éditeur de code, mais alors vous ne pourrez pas compter sur l’assistance de vos enseignants en cas de soucis liés à votre éditeur)</li>
+<li>dans ce répertoire, créer un nouveau fichier <code>TD1_Intro.py</code> dont le contenu devra se présenter sous la forme suivante :</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Section 1 : Imports de module</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Section 2 : Définition de fonctions</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Section 3 : Tests de fonctions définies et manipulations en mode &quot;script&quot;</span></span></code></pre></div>
+<h1 data-number="2" id="types-et-fonctions-de-base"><span class="header-section-number">2</span> Types et fonctions de base</h1>
+<ol type="1">
+<li>Essayer les instructions Python suivantes (ce code devra donc être copié-collé dans la “Section 3” de votre fichier) :</li>
+</ol>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">&#39;3&#39;</span> <span class="op">*</span> <span class="dv">10</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span> <span class="op">*</span> <span class="dv">10</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">&#39;3&#39;</span> <span class="op">*</span> <span class="fl">10.0</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">&#39;3&#39;</span> <span class="op">+</span> <span class="st">&#39;3&#39;</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span> <span class="op">+</span> <span class="dv">3</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">&#39;3&#39;</span> <span class="op">+</span> <span class="dv">3</span></span></code></pre></div>
+<p>Des messages d’erreurs apparaissent dans certains cas. Pour chaque erreur expliquer pourquoi il y a une erreur.</p>
+<ol start="2" type="1">
+<li><p>Un palindrome est un mot, ou une phrase, qui peut se lire indifféremment dans un sens ou dans l’autre. Dans le cas d’une phrase, on fait abstraction des espaces, majuscules, caractères accentués et caractères de ponctuation. Dans cet exercice, on ne considère que les mots. Écrire un script en Python qui part d’un mot stocké dans une chaîne de caractères puis détermine s’il s’agit d’un palindrome. Indications :</p>
+<ul>
+<li>Les mots sont donnés en minuscules, sans accents ni cédilles ;</li>
+<li>Le résultat est un test booléen à vrai ou faux ;</li>
+<li>Exemples de palindromes simples : kayak, elle, ressasser.</li>
+</ul></li>
+<li><p>Le script que vous avez codé à la question précédente a toutes les raisons d’être encapsulé dans une fonction. Quels seraient les arguments / valeurs de retour / nom que vous utiliseriez pour cette fonction ? Implémentez cette fonction dans la “Section 2” de votre fichier Python, puis testez cette fonction <em>via</em> plusieurs appels à cette fonction en “Section 3”.</p></li>
+<li><p>Écrire une fonction qui prend en argument un numéro de mois et une année et affiche le nombre de jours du mois (28, 29, 30 ou 31) ou 0 si le mois n’est pas compris entre 1 et 12 (vous n’utiliserez pas le module <code>datetime</code> ici).</p></li>
+<li><p>Écrire une fonction qui prend en argument un nom stocké dans une variable <code>nom</code> et un entier stocké dans une variable <code>nombre</code>, affiche ce nom autant de fois qu’indiqué par le nombre (on ne se souciera pas des retours à la ligne).</p></li>
+</ol>
+<h1 data-number="3" id="focus-sur-les-chaînes-de-caractères"><span class="header-section-number">3</span> Focus sur les chaînes de caractères</h1>
+<p>Pour cette partie, vous serez appelés à manipuler les principales méthodes applicables aux chaînes de caractères. Une liste non exhaustive est disponible dans le polycopié associé à ce cours (<a href="https://rtavenar.github.io/poly_python/content/chaines.html#principales-methodes-de-la-classe-str">cliquer ici</a>).</p>
+<ol type="1">
+<li><p>Soient les deux chaînes de caractères suivantes :</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>replique_1_2 <span class="op">=</span> <span class="st">&quot;Je ne vous jette pas la pierre, Pierre,&quot;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>replique_2_2 <span class="op">=</span> <span class="st">&quot;mais j&#39;étais à deux doigts de m&#39;agacer&quot;</span></span></code></pre></div>
+<p>Concaténer les deux répliques ci-dessous et afficher la longueur de la chaîne créée à l’aide de la fonction <code>len()</code>.</p></li>
+<li><p>Transformer la réplique concaténée en lettre minuscule puis déterminer l’indice où se trouve la sous-chaîne <code>&quot;jette&quot;</code>.</p></li>
+<li><p>Remplacer dans la réplique le mot <code>&quot;agacer&quot;</code> par <code>&quot;énerver&quot;</code>.</p></li>
+<li><p>Écrire un code Python qui permet d’afficher le nombre d’occurrence de <code>&quot;pierre&quot;</code> (sur la réplique en minuscule) et l’indice de toutes les occurrences dans la réplique.</p></li>
+<li><p>Écrire une fonction <code>compte_mots</code> qui prend en entrée une chaîne de caractères et retourne le nombre de mots qui la composent (on suppose que les mots sont séparés par des espaces).</p></li>
+<li><p>Écrire une fonction <code>est_un_fichier_texte</code> qui retourne vrai si la chaîne de caractères passée en argument est un nom de fichier qui se termine par <code>&quot;.txt&quot;</code>, <code>&quot;.csv&quot;</code> ou <code>&quot;.json&quot;</code>, et faux sinon.</p></li>
+</ol>
+<h1 data-number="4" id="modules-de-base"><span class="header-section-number">4</span> Modules de base</h1>
+<ol type="1">
+<li><p>Écrire du code Python qui permet de tirer au hasard une valeur réelle entre 0 et 1 exclu. Le module <code>random</code> vous sera utile, consultez sa documentation.</p></li>
+<li><p>Écrire du code Python qui, à partir d’un angle en degré stocké dans une variable <code>angle</code>, affiche la valeur du sinus de cet angle, en utilisant le module <code>math</code>.</p></li>
+<li><p>Écrire une fonction Python qui calcule l’âge d’une personne à partir du jour, du mois et de l’année de sa naissance, à l’instant de la demande (utiliser le module <code>datetime</code>).</p></li>
+</ol>
 </body>
 </html>
