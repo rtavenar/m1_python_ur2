@@ -47,6 +47,7 @@ Indications :
 3. Le script que vous avez codé à la question précédente a toutes les raisons d'être encapsulé dans une fonction. Quels seraient les arguments / valeurs de retour / nom que vous utiliseriez pour cette fonction ? Implémentez cette fonction dans la "Section 2" de votre fichier Python, puis testez cette fonction _via_ plusieurs appels à cette fonction en "Section 3".
 
 4. Écrire une fonction qui prend en argument un numéro de mois et une année et affiche le nombre de jours du mois (28, 29, 30 ou 31) ou 0 si le mois n’est pas compris entre 1 et 12 (vous n'utiliserez pas le module `datetime` ici).
+Pour savoir comment décider si une année est bissextile, vous pouvez utiliser la page wikipedia dédiée : <https://fr.wikipedia.org/wiki/Ann%C3%A9e_bissextile>
 
 5. Écrire une fonction qui prend en argument un nom stocké dans une variable `nom` et un entier stocké dans une variable `nombre`, affiche ce nom autant de fois qu'indiqué par le nombre (on ne se souciera pas des retours à la ligne).
 
@@ -68,11 +69,7 @@ Une liste non exhaustive est disponible dans le polycopié associé à ce cours 
 
 3. Remplacer dans la réplique le mot `"agacer"` par `"énerver"`.
 
-4. Écrire un code Python qui permet d'afficher le nombre d’occurrence de `"pierre"` (sur la réplique en minuscule) et l'indice de toutes les occurrences dans la réplique.
-
-5. Écrire une fonction `compte_mots` qui prend en entrée une chaîne de caractères et retourne le nombre de mots qui la composent (on suppose que les mots sont séparés par des espaces).
-
-6. Écrire une fonction `est_un_fichier_texte` qui retourne vrai si la chaîne de caractères passée en argument est un nom de fichier qui se termine par `".txt"`, `".csv"` ou `".json"`, et faux sinon.
+4. Écrire un code Python qui permet d'afficher le nombre d’occurrence de `"pierre"` (sur la réplique en minuscule).
 
 # Modules de base
 

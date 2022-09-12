@@ -20,7 +20,11 @@ La structure de ce fichier devra être la suivante :
 
 # Exercices indépendants
 
-1. Écrire une fonction `table_multiplication` qui prenne pour argument une base, un multiplicateur de début et un autre de fin et affiche la table de multiplication de cette base entre les deux bornes fournies. Par exemple `table_multiplication(5, 4, 7)` affichera une sortie de la forme :
+1. Écrire une fonction `compte_mots` qui prend en entrée une chaîne de caractères et retourne le nombre de mots qui la composent (on suppose que les mots sont séparés par des espaces).
+
+2. Écrire une fonction `est_un_fichier_texte` qui retourne vrai si la chaîne de caractères passée en argument est un nom de fichier qui se termine par `".txt"`, `".csv"` ou `".json"`, et faux sinon.
+
+3. Écrire une fonction `table_multiplication` qui prenne pour argument une base, un multiplicateur de début et un autre de fin et affiche la table de multiplication de cette base entre les deux bornes fournies. Par exemple `table_multiplication(5, 4, 7)` affichera une sortie de la forme :
 
 ```
 5*4=20
@@ -33,13 +37,13 @@ La structure de ce fichier devra être la suivante :
 > 
 > Édouard Lucas, L'arithmétique amusante, Blanchard 1974
 
-2. Écrire une fonction permettant de calculer le nombre d'années de production qu'il faudrait pour garnir l'échiquier (Indications : Masse d'un grain = 0,035 g ;  Production annuelle = 650 millions de tonnes). Les noms des variables doivent être parlants et vous devrez conserver la trace du test de votre fonction dans votre script.
+4. Écrire une fonction permettant de calculer le nombre d'années de production qu'il faudrait pour garnir l'échiquier (Indications : Masse d'un grain = 0,035 g ;  Production annuelle = 650 millions de tonnes). Les noms des variables doivent être parlants et vous devrez conserver la trace du test de votre fonction dans votre script.
 
-3. Écrire une fonction qui prend en entrée trois entiers format une date : `jour`, `mois` et `annee` et qui retourne la date du lendemain sous la forme de trois entiers. Vous pourrez réutiliser des fonctions définies dans le TD1 : pour cela, copiez-collez le code de ces fonctions (mais pas les tests correspondants).
+5. Écrire une fonction qui prend en entrée trois entiers format une date : `jour`, `mois` et `annee` et qui retourne la date du lendemain sous la forme de trois entiers. Vous pourrez réutiliser des fonctions définies dans le TD1 : pour cela, copiez-collez le code de ces fonctions (mais pas les tests correspondants).
 
 # Du cas général au cas particulier
 
-1. **En utilisant la fonction codée à la première question de ce TD**, écrire une fonction `table_multiplication_usuelle` qui prenne pour argument une base et affiche la table de multiplication de cette base (pour des multiplicateurs allant donc de 1 à 10). 
+1. **En utilisant la fonction codée à la troisième question de ce TD**, écrire une fonction `table_multiplication_usuelle` qui prenne pour argument une base et affiche la table de multiplication de cette base (pour des multiplicateurs allant donc de 1 à 10). 
 Par exemple `table_multiplication_usuelle(5)` affichera la table de 5, soit une sortie de la forme :
 
 ```
