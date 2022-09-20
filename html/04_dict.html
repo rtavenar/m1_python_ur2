@@ -5,7 +5,7 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta name="author" content="Xavier André &amp; Romain Tavenard" />
-  <title>TD3 : Les dictionnaires et les sets</title>
+  <title>TD4 : Les dictionnaires et les sets</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -84,20 +84,40 @@
 </head>
 <body>
 <header id="title-block-header">
-<h1 class="title">TD3 : Les dictionnaires et les <em>sets</em></h1>
+<h1 class="title">TD4 : Les dictionnaires et les <em>sets</em></h1>
 <p class="author">Xavier André &amp; Romain Tavenard</p>
 </header>
 <h1 data-number="1" id="préambule"><span class="header-section-number">1</span> Préambule</h1>
-<p>Comme pour le TD précédent, et comme pour tous les TD ce semestre, votre code pour ce TD devra se trouver dans un seul fichier, cette fois nommé <code>TD4_Dicos.py</code> et stocké dans le même répertoire <code>M1_S1_Python</code>. La structure de ce fichier devra être la suivante :</p>
+<p>Comme pour tous les TD ce semestre, votre code pour ce TD devra se trouver dans un seul fichier, cette fois nommé <code>TD4_Dicos.py</code> et stocké dans le même répertoire <code>M1_S1_Python</code>. La structure de ce fichier devra être la suivante :</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Section 1 : Imports de module</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Section 2 : Définition de fonctions</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Section 3 : Tests de fonctions définies et manipulations en mode &quot;script&quot;</span></span></code></pre></div>
 <h1 data-number="2" id="les-dictionnaires"><span class="header-section-number">2</span> Les dictionnaires</h1>
+<ol type="1">
+<li><p>Écrire une fonction <code>normalise_texte</code> qui retourne la chaîne minuscule du texte passé en paramètre, avec ses lettres accentuées ou cédillées converties en lettres normales et les ligatures séparées (<code>&quot;ZÈBRE&quot;</code> <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mo>⇒</mo><annotation encoding="application/x-tex">\Rightarrow</annotation></semantics></math> <code>&quot;zebre&quot;</code> , <code>&quot;bœuf&quot;</code> <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mo>⇒</mo><annotation encoding="application/x-tex">\Rightarrow</annotation></semantics></math> <code>&quot;boeuf&quot;</code>). Voici la liste des caractères spéciaux en français :</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">&quot;À&quot;</span>, <span class="st">&quot;Â&quot;</span>, <span class="st">&quot;Æ&quot;</span>, <span class="st">&quot;Ç&quot;</span>, <span class="st">&quot;É&quot;</span>, <span class="st">&quot;È&quot;</span>, <span class="st">&quot;Ê&quot;</span>, <span class="st">&quot;Ë&quot;</span>, <span class="st">&quot;Î&quot;</span>, <span class="st">&quot;Ï&quot;</span>, <span class="st">&quot;Ô&quot;</span>, <span class="st">&quot;Œ&quot;</span>, <span class="st">&quot;Ù&quot;</span>, <span class="st">&quot;Û&quot;</span>, <span class="st">&quot;Ü&quot;</span>, <span class="st">&quot;à&quot;</span>, <span class="st">&quot;â&quot;</span>, <span class="st">&quot;æ&quot;</span>, <span class="st">&quot;ç&quot;</span>, <span class="st">&quot;é&quot;</span>, <span class="st">&quot;è&quot;</span>, <span class="st">&quot;ê&quot;</span>, <span class="st">&quot;ë&quot;</span>, <span class="st">&quot;î&quot;</span>, <span class="st">&quot;ï&quot;</span>, <span class="st">&quot;ô&quot;</span>, <span class="st">&quot;œ&quot;</span>, <span class="st">&quot;ù&quot;</span>, <span class="st">&quot;û&quot;</span>, <span class="st">&quot;ü&quot;</span>, <span class="st">&quot;ÿ&quot;</span></span></code></pre></div>
+<p>Tester votre fonction avec la chaîne suivante : “Dès Noël où un zéphyr haï me vêt de glaçons würmiens, je dîne d’exquis rôtis de bœuf au kir à l’aÿ d’âge mûr et cætera !”</p></li>
+<li><p>Écrire une fonction qui à partir d’une chaîne de caractères passée en argument renvoie un dictionnaire associant chaque mot à son nombre d’occurrences dans la chaîne.</p></li>
+<li><p>En utilisant la fonction codée à la question précédente, écrire une fonction qui à partir d’une chaîne de caractères passée en argument retourne le mot le plus fréquent dans cette chaîne.</p></li>
+<li><p>On dispose d’un dictionnaire associant à des noms de commerciaux d’une société le nombre de ventes qu’ils/elles ont réalisées. Par exemple :</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>ventes<span class="op">=</span>{<span class="st">&quot;Dupont&quot;</span>:<span class="dv">14</span>, <span class="st">&quot;Hervy&quot;</span>:<span class="dv">19</span>, <span class="st">&quot;Geoffroy&quot;</span>:<span class="dv">15</span>, <span class="st">&quot;Layec&quot;</span>:<span class="dv">21</span>}</span></code></pre></div>
+<ul>
+<li>Écrivez une fonction qui prend en entrée un tel dictionnaire et renvoie le nombre total de ventes dans la société.</li>
+<li>Écrivez une fonction qui prend en entrée un tel dictionnaire et renvoie le nom du vendeur ayant réalisé le plus de ventes. Si plusieurs vendeurs sont ex-æquo sur ce critère, la fonction devra retourner le nom de l’un d’entre eux.</li>
+</ul></li>
+</ol>
 <h1 data-number="3" id="les-sets"><span class="header-section-number">3</span> Les <em>sets</em></h1>
 <ol type="1">
-<li>Reprendre la question 6. du TD précédent et implémenter une nouvelle fonction <code>liste_triee_sans_doublon</code> qui utilisera, cette fois, la fonction <code>set()</code>.</li>
+<li><p>Reprendre la question 6. du TD précédent et implémenter une nouvelle fonction <code>liste_triee_sans_doublon</code> qui utilisera, cette fois, la fonction <code>set()</code>.</p></li>
+<li><p>Écrire une fonction qui prend en entrée une liste et retourne le nombre d’éléments distincts de cette liste (BONUS si votre fonction tient en une ligne).</p></li>
+<li><p>Un pangramme est une phrase qui comporte les 26 lettres de l’alphabet, comme :</p>
+<ul>
+<li><code>&quot;Portez ce vieux whisky au juge blond qui fume&quot;</code> ;</li>
+<li><code>&quot;J&#39;ai vu un punk afghan et deux clowns aux zygomatiques incroyables&quot;</code></li>
+</ul>
+<p>Écrire une fonction <code>pangramme</code> qui, à partir d’une phrase passée en paramètre, retourne un booléen indiquant si cette phrase est un pangramme.</p></li>
 </ol>
 </body>
 </html>
