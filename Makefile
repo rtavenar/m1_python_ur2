@@ -16,7 +16,7 @@ _build/epub/%.epub: src/%.md
 
 _build/pdf/%.pdf: src/%.md
 	mkdir -p _build/pdf
-	pandoc -V lang=fr -o $@ --resource-path src/ --template assets/custom-eisvogel.tex --listings --columns 1000 --variable urlcolor=cyan --number-sections $^
+	pandoc -V lang=fr -o $@ --resource-path src/ --template assets/custom-eisvogel.tex --listings --columns 1000 --variable urlcolor=cyan --number-sections --pdf-engine=xelatex $^
 
 clean:
 	rm -f $(TARGETS)
