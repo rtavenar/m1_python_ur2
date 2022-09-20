@@ -72,3 +72,21 @@ N'hésitez pas à aller vous mesurer aux défis qui y sont proposés de temps en
     Calculez la matrice de Cauchy $C$ définie comme $$C_{ij} = \frac{1}{z_i - y_j} \,\, .$$
 
 4. Générez une matrice aléatoire de taille $10\times 10$ et standardisez-la pour que la moyenne de chacune de ses lignes soit égale à 0.
+
+# Exercice de synthèse
+
+_Cet exercice est issu du polycopié associé au cours._
+
+Supposons qu'on ait stocké dans le tableau suivant les notes reçues par 2 étudiants à 3 examens :
+
+```python
+notes = np.array(
+  [[10, 12],
+   [15, 16],
+   [18, 12]]
+)
+```
+
+1. Calculez la moyenne de chacun des deux étudiants.
+
+2. Calculez le nombre de notes supérieures à 12 contenues dans ce tableau
