@@ -23,8 +23,9 @@ La structure de ce fichier devra être la suivante :
 1. Écrire une fonction `normalise_texte` qui retourne la chaîne minuscule du texte passé en paramètre, avec ses lettres accentuées ou cédillées converties en lettres normales et les ligatures séparées (`"ZÈBRE"` $\Rightarrow$ `"zebre"` , `"bœuf"` $\Rightarrow$ `"boeuf"`).
 Voici la liste des caractères spéciaux en français :
 
+
     ```python
-    "À", "Â", "Æ", "Ç", "É", "È", "Ê", "Ë", "Î", "Ï", "Ô", "Œ", "Ù", "Û", "Ü", "à", "â", "æ", "ç", "é", "è", "ê", "ë", "î", "ï", "ô", "œ", "ù", "û", "ü", "ÿ"
+    "À", "Â", "Æ", "Ç", "É", "È", "Ê", "Ë", "Î", "Ï", "Ô", "Œ", "Ù", "Û", "Ü", "Ÿ", "à", "â", "æ", "ç", "é", "è", "ê", "ë", "î", "ï", "ô", "œ", "ù", "û", "ü", "ÿ"
     ```
 
     Tester votre fonction avec la chaîne suivante : "Dès Noël où un zéphyr haï me vêt de glaçons würmiens, je dîne d'exquis rôtis de bœuf au kir à l'aÿ d'âge mûr et cætera !"
