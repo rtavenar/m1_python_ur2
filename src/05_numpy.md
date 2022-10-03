@@ -54,7 +54,7 @@ N'hésitez pas à aller vous mesurer aux défis qui y sont proposés de temps en
 
 5. Définissez une matrice `M2` d'entiers de taille $10\times10$ ayant des 1 sur tout le tour et des 0 à l'intérieur (BONUS si vous parvenez à définir `M2` en seulement 2 lignes de code).
 
-6. Générez une matrice aléatoire de taille $10\times 10$ et standardisez-la pour que ses valeurs soient toutes comprises entre 0 et 1.
+6. Générez une matrice aléatoire de taille $10\times 10$ en tirant selon une loi normale centrée réduite et standardisez-la pour que ses valeurs soient toutes comprises entre 0 et 1.
 
 # Calculs
 
@@ -69,9 +69,9 @@ N'hésitez pas à aller vous mesurer aux défis qui y sont proposés de temps en
     y = np.array([1., 2., 8.])
     ```
 
-    Calculez la matrice de Cauchy $C$ définie comme $$C_{ij} = \frac{1}{z_i - y_j} \,\, .$$
+    Calculez la matrice de Cauchy $C$ définie comme $$C_{ij} = \frac{1}{x_i - y_j} \,\, .$$
 
-4. Générez une matrice aléatoire de taille $10\times 10$ et standardisez-la pour que la moyenne de chacune de ses lignes soit égale à 0.
+4. Générez une matrice aléatoire de taille $10\times 3$ et standardisez-la pour que la moyenne de chacune de ses lignes soit égale à 0.
 
 # Exercice de synthèse
 
