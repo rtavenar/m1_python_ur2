@@ -117,7 +117,10 @@
 <h1 data-number="3" id="utilisation-de-lapi-graphhopper"><span class="header-section-number">3</span> Utilisation de l’API GraphHopper</h1>
 <ol type="1">
 <li><p>Se créer un compte sur l’API GraphHopper et générer une clef d’API pour ce compte.</p></li>
-<li><p>Stocker cette clé d’API dans l’attribut <code>&quot;clef_GH&quot;</code> d’un fichier <code>credentials.json</code> stocké dans votre dossier <code>data</code>.</p></li>
+<li><p>Stocker cette clé d’API dans l’attribut <code>&quot;clef_GH&quot;</code> d’un fichier <code>credentials.json</code> stocké dans votre dossier <code>data</code>. Le fichier aura la structure suivante :</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;clef_GH&quot;</span><span class="fu">:</span> <span class="st">&quot;VOTRE_CLE_ICI&quot;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div></li>
 <li><p>Dans votre script Python, lisez cette clef d’API depuis le fichier en question puis générez un objet client GraphHopper : <code>gh_client = GraphHopper(api_key=YOUR_API_KEY)</code></p></li>
 <li><p>En utilisant la fonction <code>latlong_to_address</code> du module <code>graphh</code> et les fonctions créées plus haut dans ce TD, écrivez une fonction qui prend en entrée un numéro de bus et un client GraphHopper et retourne l’adresse où se trouve le bus en question.</p></li>
 </ol>
