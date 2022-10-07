@@ -68,7 +68,13 @@ des bus de cette ligne.
 1. Se créer un compte sur l'API GraphHopper et générer une clef d'API pour ce compte.
 
 2. Stocker cette clé d'API dans l'attribut `"clef_GH"` d'un fichier `credentials.json` stocké dans 
-votre dossier `data`.
+votre dossier `data`. Le fichier aura la structure suivante :
+
+    ```json
+    {
+        "clef_GH": "VOTRE_CLE_ICI"
+    }
+    ```
 
 3. Dans votre script Python, lisez cette clef d'API depuis le fichier en question puis générez
 un objet client GraphHopper : `gh_client = GraphHopper(api_key=YOUR_API_KEY)`
