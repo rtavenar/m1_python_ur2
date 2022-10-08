@@ -40,9 +40,11 @@ Concrètement, votre programme devra afficher, pour chaque suspect listé dans l
 prénom et s'il est possible ou non, d'après les traces laissées sur les réseaux sociaux, qu'il ait commis le crime.
 
 Pour mener à bien votre mission, vous pourrez utiliser (outre votre intelligence) :
+
 * le _package_ `graphh` pour calculer des temps de trajet théoriques (notez qu'on ne sait pas si les suspects se sont déplacés à pied, en vélo ou encore en voiture : il vous faudra envisager toutes les possibilités),
 * le _package_ `datetime` pour la gestion des dates et des temps écoulés entre deux dates (un chapitre y est dédié dans le poly, n'hésitez pas à vous y référer).
 
 De plus, pour simuler les posts Twitter et Snapchat, vous utiliserez les données disponibles à ces adresses :
+
 * <https://my-json-server.typicode.com/rtavenar/fake_api/twitter_posts>
 * <https://my-json-server.typicode.com/rtavenar/fake_api/snapchat_posts>
