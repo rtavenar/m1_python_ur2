@@ -1,0 +1,18 @@
+{
+    "Villejean-Sud": {"lng": -1.703605, "lat": 48.117628},
+    "Pontchaillou-Gare": {"lng": -1.690945, "lat": 48.119175},
+    "Pontchaillou": {"lng": -1.692940, "lat": 48.121490},
+    "Sainte-Anne": {"lng": -1.680774, "lat": 48.114934},
+    "LaHarpe": {"lng": -1.709914, "lat": 48.125105},
+    "République": {"lng": -1.679358, "lat": 48.110178},
+    "Thabor-Sud": {"lng": -1.669986, "lat": 48.112739},
+    "PlaineDeBaud": {"lng": -1.642166, "lat": 48.112631},
+    "Leclerc-StGregoire": {"lng": -1.682405, "lat": 48.139222},
+    "Colombiers": {"lng": -1.682969, "lat": 48.104824},
+    "Gayeulles": {"lng": -1.650310, "lat": 48.136046},
+    "Prairies-StMartin": {"lng": -1.671035, "lat": 48.124744},
+    "IKEA-Rennes": {"lng": -1.764416, "lat": 48.137123},
+    "Bréquigny": {"lng": -1.688627, "lat": 48.083581},
+    "Dinard": {"lng": -2.058422, "lat": 48.629763},
+    "Paris": {"lng": 2.347402, "lat": 48.864710}
+}
