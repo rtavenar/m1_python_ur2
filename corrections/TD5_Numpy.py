@@ -16,12 +16,14 @@ M = np.reshape(range(12), (3, 4))
 print(M)
 #Q4
 print(np.transpose(M))
-#Q6
+#Q5
 M2 = np.ones((10, 10))
 M2[1:9, 1:9] = 0
 print(M2)
-#Q7 => pourquoi standardiser ? ce n'est pas la fonction uniform ?
-M3 = np.random.uniform(size=(10, 10))
+#Q6
+M3 = np.random.normal(size=(10, 10))
+M3 -= M3.min()
+M3 /= M3.max()
 print(M3)
 
 # 3 Calculs
@@ -41,7 +43,7 @@ print(x.reshape((3,1)), y.reshape((1,3)))
 C = 1/(x.reshape((3,1)) - y.reshape((1,3)))
 print(C)
 
-#Q4 => Avec une matrice pas carrée c'est plus facile de se repérer ; j'avais commencé par faire la moyenne des colonnes avec un axis=0
+#Q4
 M4 = np.random.uniform(size=(10, 3))
 print(M4.shape)
 print(np.mean(M4, axis=1).shape)
