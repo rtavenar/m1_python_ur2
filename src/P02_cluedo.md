@@ -36,7 +36,7 @@ Le 8 Octobre 2022, à 16h23, un crime a été commis à l'UFR Sciences Sociales 
 Trois suspects ont été ciblés grâce aux premiers éléments de l'enquête.
 Votre rôle sera de déterminer si leur activité sur les reseaux sociaux est cohérente ou non avec leur présence sur les lieux du crime à l'heure dite.
 
-Concrètement, votre programme devra afficher, pour chaque suspect listé dans le fichier [`suspects.csv`](../data/suspects.csv), ses nom et
+Concrètement, votre programme devra afficher, pour chaque suspect listé dans le fichier [`suspects.csv`](https://raw.githubusercontent.com/rtavenar/m1_python_ur2/main/modules_fournis/suspects.csv), ses nom et
 prénom et s'il est possible ou non, d'après les traces laissées sur les réseaux sociaux, qu'il ait commis le crime.
 
 Pour mener à bien votre mission, vous pourrez utiliser (outre votre intelligence) :
