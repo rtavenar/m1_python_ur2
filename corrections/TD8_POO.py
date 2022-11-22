@@ -56,6 +56,10 @@ class CompteSimple:
 class CompteCourant(CompteSimple):
     def __init__(self):
         self.operations = []
+        
+    @property
+    def solde(self):
+        return sum(self.operations)
     
     @property
     def releveDebits(self):
@@ -134,6 +138,7 @@ cc.enregistrerOperation(-32)
 cc.afficherReleve()
 cc.afficherReleveCredits()
 cc.afficherReleveDebits()
+print(cc.solde)
 
 print(10 in IntervalleOuvert(10, 20))
 print(10 in IntervalleFerme(10, 20))
