@@ -1,0 +1,19 @@
+[
+    {
+        "debut": "2022-11-29T09:15",
+        "fin": "2022-11-29T10:15",
+        "titre": "CM Python",
+        "lieu": "A023"
+    },
+    {
+        "debut": "2022-11-29T08:15",
+        "fin": "2022-11-29T09:15",
+        "titre": "CM Bases de données",
+        "lieu": "A023"
+    },
+    {
+        "debut": "2022-11-29T13:45",
+        "fin": "2022-11-29T15:45",
+        "titre": "Cours éventuel place Hoche"
+    }
+]
