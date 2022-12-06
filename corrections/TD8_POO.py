@@ -18,6 +18,33 @@ class Intervalle:
         
     def __contains__(self, v):
         return v >= self.a and v <= self.b
+
+class Fraction:
+    def __init__(self, num=1, den=1):
+        self.num = abs(num)
+        self.den = abs(den)
+        if num * den >= 0:
+            self.signe = 1
+        else:
+            self.signe = -1
+    
+    def __str__(self):
+        if self.signe > 0:
+            return f"({self.num}/{self.den})"
+        else:
+            return f"(-{self.num}/{self.den})"
+    
+    def __neg__(self):
+        return Fraction(-1 * self.signe * self.num, self.den)
+    
+    def __add__(self, other):
+        return Fraction(self.signe * other.signe * (self.num * other.den + other.num * self.den), self.den * other.den)
+    
+    def __sub__(self, other):
+        return self + (-other)
+    
+    def __mul__(self, other):
+        return Fraction(self.signe * other.signe * self.num * other.num, self.den * other.den)
     
 class Fraction:
     def __init__(self, num=1, den=1, signe=1):

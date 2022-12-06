@@ -1,0 +1,15 @@
+[
+    {
+        "date_naissance": "2002-11-29T09:15",
+        "nom": "MARTIN",
+        "prenom": "Paul",
+        "lieu_naissance": "Laval",
+        "numetu": "22010000"
+    },
+    {
+        "date_naissance": "2002-04-29T09:15",
+        "nom": "ALLEAU",
+        "prenom": "Marine",
+        "numetu": "22010001"
+    }
+]
