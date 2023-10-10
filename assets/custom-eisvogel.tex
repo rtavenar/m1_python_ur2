@@ -540,6 +540,17 @@ $endif$
 %% added
 %%
 
+\newcommand\quadribis[2]{%
+\setlength\unitlength{5mm}
+\begin{minipage}{#1\unitlength}\medbreak
+\textcolor{gray}{\begin{picture}(#1,#2)
+\line(0,1){#2}
+\multiput(1,0)(1,0){#1}{\line(0,1){#2}}
+\put(0,0){\line(1,0){#1}}
+\multiput(0,1)(0,1){#2}{\line(1,0){#1}}
+\end{picture}}\medbreak
+\end{minipage}}
+
 $if(page-background)$
 \usepackage[pages=all]{background}
 $endif$
@@ -838,7 +849,7 @@ $else$
   \ihead*{\includegraphics[width=2cm]{assets/logo_ur2.pdf}}
   % \ihead*{$if(header-left)$$header-left$$else$$title$$endif$}
   \chead*{$if(header-center)$$header-center$$else$$endif$}
-  \ohead*{$if(header-right)$$header-right$$else$$date$$endif$}
+  % \ohead*{$if(header-right)$$header-right$$else$$date$$endif$}
   \ifoot*{$if(footer-left)$$footer-left$$else$Programmation Python -- M1 MAS$endif$}
   \cfoot*{$if(footer-center)$$footer-center$$else$$endif$}
   \ofoot*{$if(footer-right)$$footer-right$$else$\thepage$endif$}
