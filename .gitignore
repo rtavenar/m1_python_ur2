@@ -6,3 +6,7 @@ src/CC02.md
 src/CC02_bis.md
 src/SESS2.md
 corrections/CC2.py
+assets/*.aux
+assets/*.fls
+assets/*.log
+assets/*.fdb_latexmk
