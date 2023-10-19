@@ -5,7 +5,7 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta name="author" content="Xavier André &amp; Romain Tavenard" />
-  <title>Projet Cluedo</title>
+  <title>Projet POO</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -84,11 +84,11 @@
 </head>
 <body>
 <header id="title-block-header">
-<h1 class="title">Projet Cluedo</h1>
+<h1 class="title">Projet POO</h1>
 <p class="author">Xavier André &amp; Romain Tavenard</p>
 </header>
 <h1 data-number="1" id="préambule"><span class="header-section-number">1</span> Préambule</h1>
-<p>Pour ce projet, vous devrez travailler par groupes de 2 ou 3 et votre rendu se fera sous la forme d’un fichier Python. Ce fichier devra être nommé <code>P02.py</code> et contenir, sous la forme de commentaires dans l’en-tête du fichier :</p>
+<p>Pour ce projet, vous devrez travailler par groupes de 2 ou 3 et votre rendu se fera sous la forme d’un fichier Python. Ce fichier devra être nommé <code>P03.py</code> et contenir, sous la forme de commentaires dans l’en-tête du fichier :</p>
 <ul>
 <li>les noms et numéros étudiant de tous les membres du groupe ;</li>
 <li>en cas d’usage de ChatGPT ou d’un autre assistant, un lien vers la session utilisée pour s’aider (lien “Share Chat” en haut à droite de la fenêtre ChatGPT)</li>
@@ -100,24 +100,41 @@
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Section 1 : les imports</span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># [...]</span></span></code></pre></div>
-<p>La date limite de rendu est indiquée sur CURSUS dans l’espace de dépôt. Les fichiers déposés sur CURSUS ne devront <strong>surtout pas</strong> contenir votre clé d’API GraphHopper. Celle-ci devra être lue par votre programme dans un fichier <code>credentials.json</code> (que vous ne fournirez pas pour ne pas divulguer votre clé d’API) au format :</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;graphhopper&quot;</span><span class="fu">:</span> <span class="fu">{</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;API_KEY&quot;</span><span class="fu">:</span> <span class="st">&quot;...&quot;</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
-<h1 data-number="2" id="lenquête"><span class="header-section-number">2</span> L’enquête</h1>
-<p>Le 16 Octobre 2023, à 16h23, un crime a été commis à l’UFR Sciences Sociales de l’Université de Rennes 2. Trois suspects ont été ciblés grâce aux premiers éléments de l’enquête. Votre rôle sera de déterminer si leur activité sur les reseaux sociaux est cohérente ou non avec leur présence sur les lieux du crime à l’heure dite.</p>
-<p>Concrètement, votre programme devra afficher, pour chaque suspect listé dans le fichier <a href="https://raw.githubusercontent.com/rtavenar/m1_python_ur2/main/modules_fournis/suspects.csv"><code>suspects.csv</code></a>, son <code>ID</code>, son adresse e-mail et s’il est possible ou non, d’après les traces laissées sur les réseaux sociaux, qu’il ait commis le crime.</p>
-<p>Pour mener à bien votre mission, vous pourrez utiliser (outre votre intelligence) :</p>
+<p>La date limite de rendu est indiquée sur CURSUS dans l’espace de dépôt.</p>
+<h1 data-number="2" id="sujet"><span class="header-section-number">2</span> Sujet</h1>
+<p>Dans ce projet, vous allez implémenter des classes permettant de lire des fichiers de données et de stocker leur contenu sous la forme de listes de dictionnaires.</p>
+<p>Votre code devra permettre de lire des fichiers aux formats JSON, CSV et XLS(X).</p>
+<p>Pour chaque type de fichier, une classe devra être implémentée pour laquelle les méthodes suivantes devront être disponibles :</p>
 <ul>
-<li>le <em>package</em> <code>graphh</code> pour calculer des temps de trajet théoriques (notez qu’on ne sait pas si les suspects se sont déplacés à pied, en vélo ou encore en voiture : il vous faudra envisager toutes les possibilités),</li>
-<li>le <em>package</em> <code>datetime</code> pour la gestion des dates et des temps écoulés entre deux dates (un chapitre y est dédié dans le poly, n’hésitez pas à vous y référer).</li>
+<li><p><code>__init__</code> : prend en entrée un nom de fichier, stocké dans l’attribut public <code>fname</code>, et charge le contenu de ce fichier dans un attribut privé <code>_data</code> de type liste de dictionnaires ;</p></li>
+<li><p><code>_parse</code> : lit le fichier pointé par l’attribut <code>fname</code> et stocke son contenu dans <code>_data</code></p></li>
+<li><p><code>_update_keys</code> : stocke dans l’attribut public <code>keys</code> la liste des clés présentes dans au moins un dictionnaire de la liste <code>_data</code>, triées dans l’ordre alphabétique ;</p></li>
+<li><p><code>__getitem__</code> : permet d’accéder à des tranches de données issues de <code>_data</code> ;</p></li>
+<li><p><code>__repr__</code> : devra donner une sortie du type</p>
+<pre><code>&lt;JSONReader(&#39;truc.json&#39;), 2 rows, keys: [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]&gt;</code></pre></li>
+<li><p><code>reload</code> : recharge le contenu du fichier pointé par l’attribut <code>fname</code> dans <code>_data</code></p></li>
+<li><p><code>from_attributes</code> : prend en entrée une liste <code>l_attr</code> et retourne une liste des données de <code>_data</code> restreintes aux attributs listés dans <code>l_attr</code>.</p></li>
 </ul>
-<p>De plus, pour simuler les posts Twitter et Snapchat, vous utiliserez les données disponibles à ces adresses :</p>
-<ul>
-<li><a href="https://my-json-server.typicode.com/rtavenar/fake_api/twitter_posts" class="uri">https://my-json-server.typicode.com/rtavenar/fake_api/twitter_posts</a></li>
-<li><a href="https://my-json-server.typicode.com/rtavenar/fake_api/snapchat_posts" class="uri">https://my-json-server.typicode.com/rtavenar/fake_api/snapchat_posts</a></li>
-</ul>
+<p>Vous utiliserez toutes les possibilités offertes par la programmation orientée objet pour limiter la répétition de code.</p>
+<p>Vous pourrez tester votre code sur les fichiers <a href="https://raw.githubusercontent.com/rtavenar/m1_python_ur2/main/modules_fournis/chose.xlsx"><code>chose.xlsx</code></a>, <a href="https://raw.githubusercontent.com/rtavenar/m1_python_ur2/main/modules_fournis/machin.csv"><code>machin.csv</code></a> et <a href="https://raw.githubusercontent.com/rtavenar/m1_python_ur2/main/modules_fournis/truc.json"><code>truc.json</code></a>.</p>
+<h2 data-number="2.1" id="bonus"><span class="header-section-number">2.1</span> Bonus</h2>
+<p>Si vous avez déjà implémenté avec succès ce qui est demandé ci-dessus, vous pourrez vous pencher sur le bonus suivant.</p>
+<p>Proposez un code qui permet d’obtenir les sorties suivantes :</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> c <span class="op">=</span> ReaderCollection([<span class="st">&quot;truc.json&quot;</span>, <span class="st">&quot;machin.csv&quot;</span>, <span class="st">&quot;chose.xlsx&quot;</span>])</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> <span class="bu">print</span>(c)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>[<span class="op">&lt;</span>GenericReader(<span class="st">&#39;truc.json&#39;</span>), <span class="dv">2</span> rows, keys: [<span class="st">&#39;a&#39;</span>, <span class="st">&#39;b&#39;</span>, <span class="st">&#39;c&#39;</span>]<span class="op">&gt;</span>, </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a> <span class="op">&lt;</span>GenericReader(<span class="st">&#39;machin.csv&#39;</span>), <span class="dv">4</span> rows, keys: [<span class="st">&#39;a&#39;</span>, <span class="st">&#39;b&#39;</span>, <span class="st">&#39;c&#39;</span>, <span class="st">&#39;d&#39;</span>, <span class="st">&#39;e&#39;</span>]<span class="op">&gt;</span>, </span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a> <span class="op">&lt;</span>GenericReader(<span class="st">&#39;chose.xlsx&#39;</span>), <span class="dv">3</span> rows, keys: [<span class="st">&#39;a&#39;</span>, <span class="st">&#39;b&#39;</span>, <span class="st">&#39;c&#39;</span>, <span class="st">&#39;d&#39;</span>]<span class="op">&gt;</span>]</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> <span class="im">from</span> pprint <span class="im">import</span> pprint</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> pprint(c.from_attributes([<span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>]))</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>[{<span class="st">&#39;b&#39;</span>: <span class="dv">45</span>, <span class="st">&#39;c&#39;</span>: <span class="va">None</span>},</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a> {<span class="st">&#39;b&#39;</span>: <span class="va">None</span>, <span class="st">&#39;c&#39;</span>: <span class="dv">76</span>},</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a> {<span class="st">&#39;b&#39;</span>: <span class="st">&#39;43432&#39;</span>, <span class="st">&#39;c&#39;</span>: <span class="st">&#39;432432&#39;</span>},</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a> {<span class="st">&#39;b&#39;</span>: <span class="st">&#39;43432&#39;</span>, <span class="st">&#39;c&#39;</span>: <span class="st">&#39;432432&#39;</span>},</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a> {<span class="st">&#39;b&#39;</span>: <span class="st">&#39;43432&#39;</span>, <span class="st">&#39;c&#39;</span>: <span class="st">&#39;432432&#39;</span>},</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a> {<span class="st">&#39;b&#39;</span>: <span class="st">&#39;43432&#39;</span>, <span class="st">&#39;c&#39;</span>: <span class="st">&#39;432432&#39;</span>},</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a> {<span class="st">&#39;b&#39;</span>: <span class="dv">2</span>, <span class="st">&#39;c&#39;</span>: <span class="dv">3</span>},</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a> {<span class="st">&#39;b&#39;</span>: <span class="dv">6</span>, <span class="st">&#39;c&#39;</span>: <span class="dv">7</span>},</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a> {<span class="st">&#39;b&#39;</span>: <span class="dv">10</span>, <span class="st">&#39;c&#39;</span>: <span class="dv">11</span>}]</span></code></pre></div>
 </body>
 </html>
