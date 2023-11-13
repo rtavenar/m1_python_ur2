@@ -82,3 +82,4 @@ un objet client GraphHopper : `gh_client = GraphHopper(api_key=YOUR_API_KEY)`
 4. En utilisant la fonction `latlong_to_address` du module `graphh` et les fonctions créées plus 
 haut dans ce TD, écrivez une fonction qui prend en entrée un numéro de bus et un client GraphHopper
 et retourne l'adresse où se trouve le bus en question.
+Vous trouverez la documentation du module `graphh` à l'adresse <https://graphh.readthedocs.io/>.
