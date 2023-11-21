@@ -32,10 +32,10 @@ seront listés en fin de fichier. De cette manière, vous pourrez, d'une questio
 1. Se rendre sur le [site de la STAR](https://data.explore.star.fr/explore/)
 et trouver l'API indiquant la position des bus de la STAR en temps réel.
 Cliquez sur l'onglet "API" pour accéder aux options de requête.
-Essayez notamment d'ajouter le _facet_ `etat` et observez les valeurs qu'il peut prendre.
+Observez les valeurs que peut prendre l'attribut `etat`.
 
 2. Combien de résultats (`records`) retourne la requête proposée par défaut ? Et combien de
-résultats sont contenus dans la base (attribut `nhits`) ? Comment faire pour vous assurer 
+résultats sont contenus dans la base (attribut `total_count`) ? Comment faire pour vous assurer 
 d'avoir tous les résultats lorsque vous formulez une requête ?
 
 **Pour les questions suivantes, il est conseillé d'importer le module `pprint` qui permet
@@ -52,7 +52,7 @@ pprint(mon_joli_dictionnaire)
 chaque bus étant représenté par un dictionnaire qui contient les clés `numerobus`, `nomcourtligne`, 
 `destination` et `ecartsecondes`.
 Pour cela, consultez l'interface d'édition de requêtes de l'API de la STAR (celle que vous 
-avez trouvé à la question 1) et ajoutez les attributs souhaités à la liste des _facets_, puis
+avez trouvé à la question 1) et ajoutez la condition _refine_ pour que `etat` vaille `"En service"`, puis
 notez l'URL générée (clic droit sur le lien du bas de la page, puis "Copier le lien").
 
 
