@@ -48,9 +48,9 @@ from pprint import pprint
 pprint(mon_joli_dictionnaire)
 ```
 
-3. Écrire une fonction qui retourne une liste des positions des bus **en service** sur le réseau, 
+3. Écrire une fonction qui retourne une liste des bus **en service** sur le réseau, 
 chaque bus étant représenté par un dictionnaire qui contient les clés `numerobus`, `nomcourtligne`, 
-`destination` et `ecartsecondes`.
+`destination`, `ecartsecondes` et `position`.
 Pour cela, consultez l'interface d'édition de requêtes de l'API de la STAR (celle que vous 
 avez trouvé à la question 1) et ajoutez la condition _refine_ pour que `etat` vaille `"En service"`, puis
 notez l'URL générée (clic droit sur le lien du bas de la page, puis "Copier le lien").
