@@ -101,8 +101,8 @@
 <p>Notamment, vous définirez vos fonctions en début de fichier et les appels seront listés en fin de fichier. De cette manière, vous pourrez, d’une question à l’autre, réutiliser les fonctions déjà codées au besoin.</p>
 <h1 data-number="2" id="énoncé"><span class="header-section-number">2</span> Énoncé</h1>
 <ol type="1">
-<li><p>Se rendre sur le <a href="https://data.explore.star.fr/explore/">site de la STAR</a> et trouver l’API indiquant la position des bus de la STAR en temps réel. Cliquez sur l’onglet “API” pour accéder aux options de requête. Essayez notamment d’ajouter le <em>facet</em> <code>etat</code> et observez les valeurs qu’il peut prendre.</p></li>
-<li><p>Combien de résultats (<code>records</code>) retourne la requête proposée par défaut ? Et combien de résultats sont contenus dans la base (attribut <code>nhits</code>) ? Comment faire pour vous assurer d’avoir tous les résultats lorsque vous formulez une requête ?</p></li>
+<li><p>Se rendre sur le <a href="https://data.explore.star.fr/explore/">site de la STAR</a> et trouver l’API indiquant la position des bus de la STAR en temps réel. Cliquez sur l’onglet “API” pour accéder aux options de requête. Observez les valeurs que peut prendre l’attribut <code>etat</code>.</p></li>
+<li><p>Combien de résultats (<code>records</code>) retourne la requête proposée par défaut ? Et combien de résultats sont contenus dans la base (attribut <code>total_count</code>) ? Comment faire pour vous assurer d’avoir tous les résultats lorsque vous formulez une requête ?</p></li>
 </ol>
 <p><strong>Pour les questions suivantes, il est conseillé d’importer le module <code>pprint</code> qui permet d’afficher de manière claire les dictionnaires :</strong></p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pprint <span class="im">import</span> pprint</span>
@@ -110,7 +110,7 @@
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>[...]</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>pprint(mon_joli_dictionnaire)</span></code></pre></div>
 <ol start="3" type="1">
-<li><p>Écrire une fonction qui retourne une liste des positions des bus <strong>en service</strong> sur le réseau, chaque bus étant représenté par un dictionnaire qui contient les clés <code>numerobus</code>, <code>nomcourtligne</code>, <code>destination</code> et <code>ecartsecondes</code>. Pour cela, consultez l’interface d’édition de requêtes de l’API de la STAR (celle que vous avez trouvé à la question 1) et ajoutez les attributs souhaités à la liste des <em>facets</em>, puis notez l’URL générée (clic droit sur le lien du bas de la page, puis “Copier le lien”).</p></li>
+<li><p>Écrire une fonction qui retourne une liste des positions des bus <strong>en service</strong> sur le réseau, chaque bus étant représenté par un dictionnaire qui contient les clés <code>numerobus</code>, <code>nomcourtligne</code>, <code>destination</code> et <code>ecartsecondes</code>. Pour cela, consultez l’interface d’édition de requêtes de l’API de la STAR (celle que vous avez trouvé à la question 1) et ajoutez la condition <em>refine</em> pour que <code>etat</code> vaille <code>&quot;En service&quot;</code>, puis notez l’URL générée (clic droit sur le lien du bas de la page, puis “Copier le lien”).</p></li>
 <li><p>Écrire une fonction qui retourne le nombre de bus en avance (qui ont un attribut <code>ecartsecondes</code> positif) dans le jeu de données.</p></li>
 <li><p>Écrire une fonction qui retourne, pour chaque ligne de bus, une liste des <code>ecartsecondes</code> des bus de cette ligne.</p></li>
 </ol>
