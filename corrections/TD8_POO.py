@@ -5,12 +5,11 @@ class Point:
     def __init__(self, x=0, y=0):
         self.x, self.y = x, y
     
-    def __str__(self):
+    def __repr__(self):
         return f'Point(x={self.x},y={self.y})'
     
-    @staticmethod
-    def distance(p1, p2):
-        return math.sqrt((p1.x - p2.x) ** 2 + (p1.y - p2.y) ** 2)
+    def distance(self, p2):
+        return math.sqrt((self.x - p2.x) ** 2 + (self.y - p2.y) ** 2)
 
 class Intervalle:
     def __init__(self, a, b):
@@ -28,7 +27,7 @@ class Fraction:
         else:
             self.signe = -1
     
-    def __str__(self):
+    def __repr__(self):
         if self.signe > 0:
             return f"({self.num}/{self.den})"
         else:
@@ -52,7 +51,7 @@ class Fraction:
         self.den = den
         self.signe = signe
     
-    def __str__(self):
+    def __repr__(self):
         if self.signe > 0:
             return f"({self.num}/{self.den})"
         else:
@@ -74,7 +73,7 @@ class CompteSimple:
     def __init__(self):
         self.solde = 0
     
-    def __str__(self):
+    def __repr__(self):
         return f"Le solde du compte est de {self.solde} Euro(s)"
     
     def enregistrerOperation(self, op):
@@ -120,7 +119,7 @@ class IntervalleAbstrait(ABC):
         self.a, self.b = a, b
         
     @abstractmethod
-    def __str__(self):
+    def __repr__(self):
         raise NotImplementedError
 
     @abstractmethod
@@ -128,14 +127,14 @@ class IntervalleAbstrait(ABC):
         raise NotImplementedError
 
 class IntervalleOuvert(IntervalleAbstrait):
-    def __str__(self):
+    def __repr__(self):
         return f"]{self.a}, {self.b}["
 
     def __contains__(self, v):
         return v > self.a and v < self.b
 
 class IntervalleFerme(IntervalleAbstrait):
-    def __str__(self):
+    def __repr__(self):
         return f"[{self.a}, {self.b}]"
 
     def __contains__(self, v):
@@ -145,7 +144,7 @@ class IntervalleFerme(IntervalleAbstrait):
 
 p0 = Point(0, 1)
 p1 = Point(0, 0)
-print(Point.distance(p0, p1))
+print(p0.distance(p1))
 
 print(15 in Intervalle(10, 20))
 

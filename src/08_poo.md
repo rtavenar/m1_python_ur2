@@ -35,11 +35,11 @@ class Point(object):
     def __init__(self, x=0, y=0):
         self.x, self.y = x, y
 
-    def __str__(self):
+    def __repr__(self):
         return f'Point(x={self.x},y={self.y})'
 ```
 
-1. Copiez-collez ce code et ajoutez à cette classe une méthode qui calcule la distance entre deux points fournis en paramètres. Doit-il s'agir d'une méthode d'instance, d'une méthode de classe ou d'une méthode statique ?
+1. Copiez-collez ce code et ajoutez à cette classe une méthode qui calcule la distance entre le point représenté par l'instance courante et un autre point fourni en paramètre.
 
 # Création d'une nouvelle classe
 
@@ -65,7 +65,7 @@ Vous aurez pour cela besoin de définir la méthode spéciale `__contains__(self
         * `den` : Valeur absolue du dénominateur ;
         * `signe` : Signe de la fraction (+1 ou -1).
 
-2. Définissez la méthode spéciale `__str__()`, permettant d'afficher la fraction.
+2. Définissez la méthode spéciale `__repr__()`, permettant d'afficher la fraction.
 
     Exemple d'affichage : `(-5/10)`
 
@@ -84,7 +84,7 @@ Nous nous intéressons ici à un compte simple caractérisé par un solde exprim
 
 1. Créez une classe `CompteSimple` respectant les caractéristiques ci-dessus.
 
-2. Surchargez la méthode `__str__()` afin d'obtenir l'affichage suivant : 
+2. Surchargez la méthode `__repr__()` afin d'obtenir l'affichage suivant : 
 
     > Le solde du compte est de XXX Euro(s).
 
@@ -117,7 +117,7 @@ On souhaite être capable de prendre en compte deux types d'intervalles : les in
 1. Définissez une classe `IntervalleAbstrait` qui hérite de la classe `ABC` et contient deux méthodes : 
 
     * une méthode `__init__` qui prend en entrée les deux bornes de l'intervalle,
-    * une méthode `__str__`,
+    * une méthode `__repr__`,
     * une méthode abstraite `__contains__` qui indique si une valeur passée en argument est considérée comme faisant partie de l'intervalle ou non.
 
 2. Définissez une classe `IntervalleOuvert` qui hérite de `IntervalleAbstrait` en ne redéfinissant que la ou les méthodes strictement nécessaire(s).
