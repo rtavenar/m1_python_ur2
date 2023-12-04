@@ -104,10 +104,10 @@
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, x<span class="op">=</span><span class="dv">0</span>, y<span class="op">=</span><span class="dv">0</span>):</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.x, <span class="va">self</span>.y <span class="op">=</span> x, y</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__str__</span>(<span class="va">self</span>):</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__repr__</span>(<span class="va">self</span>):</span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="ss">f&#39;Point(x=</span><span class="sc">{</span><span class="va">self</span><span class="sc">.x}</span><span class="ss">,y=</span><span class="sc">{</span><span class="va">self</span><span class="sc">.y}</span><span class="ss">)&#39;</span></span></code></pre></div>
 <ol type="1">
-<li>Copiez-collez ce code et ajoutez à cette classe une méthode qui calcule la distance entre deux points fournis en paramètres. Doit-il s’agir d’une méthode d’instance, d’une méthode de classe ou d’une méthode statique ?</li>
+<li>Copiez-collez ce code et ajoutez à cette classe une méthode qui calcule la distance entre le point représenté par l’instance courante et un autre point fourni en paramètre.</li>
 </ol>
 <h1 data-number="3" id="création-dune-nouvelle-classe"><span class="header-section-number">3</span> Création d’une nouvelle classe</h1>
 <h2 data-number="3.1" id="la-classe-intervalle"><span class="header-section-number">3.1</span> La classe <code>Intervalle</code></h2>
@@ -128,7 +128,7 @@
 <li><code>signe</code> : Signe de la fraction (+1 ou -1).</li>
 </ul></li>
 </ul></li>
-<li><p>Définissez la méthode spéciale <code>__str__()</code>, permettant d’afficher la fraction.</p>
+<li><p>Définissez la méthode spéciale <code>__repr__()</code>, permettant d’afficher la fraction.</p>
 <p>Exemple d’affichage : <code>(-5/10)</code></p></li>
 <li><p>Définissez les méthodes de surcharge d’opérateurs suivantes :</p>
 <ul>
@@ -143,7 +143,7 @@
 <p>Nous nous intéressons ici à un compte simple caractérisé par un solde exprimé en Euros qui peut être positif ou négatif.</p>
 <ol type="1">
 <li><p>Créez une classe <code>CompteSimple</code> respectant les caractéristiques ci-dessus.</p></li>
-<li><p>Surchargez la méthode <code>__str__()</code> afin d’obtenir l’affichage suivant :</p>
+<li><p>Surchargez la méthode <code>__repr__()</code> afin d’obtenir l’affichage suivant :</p>
 <blockquote>
 <p>Le solde du compte est de XXX Euro(s).</p>
 </blockquote></li>
@@ -169,7 +169,7 @@
 <li><p>Définissez une classe <code>IntervalleAbstrait</code> qui hérite de la classe <code>ABC</code> et contient deux méthodes :</p>
 <ul>
 <li>une méthode <code>__init__</code> qui prend en entrée les deux bornes de l’intervalle,</li>
-<li>une méthode <code>__str__</code>,</li>
+<li>une méthode <code>__repr__</code>,</li>
 <li>une méthode abstraite <code>__contains__</code> qui indique si une valeur passée en argument est considérée comme faisant partie de l’intervalle ou non.</li>
 </ul></li>
 <li><p>Définissez une classe <code>IntervalleOuvert</code> qui hérite de <code>IntervalleAbstrait</code> en ne redéfinissant que la ou les méthodes strictement nécessaire(s).</p></li>
