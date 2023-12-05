@@ -31,7 +31,7 @@ seront listés en fin de fichier. De cette manière, vous pourrez, d'une questio
 Soit la classe suivante :
 
 ```python
-class Point(object):
+class Point:
     def __init__(self, x=0, y=0):
         self.x, self.y = x, y
 
