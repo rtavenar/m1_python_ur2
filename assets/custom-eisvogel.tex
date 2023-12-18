@@ -150,6 +150,7 @@ $endif$
   \usepackage[utf8]{inputenc}
   \usepackage{textcomp} % provide euro and other symbols
 \else % if luatex or xetex
+\usepackage[utf8]{inputenc}
 $if(mathspec)$
   \ifXeTeX
     \usepackage{mathspec}
@@ -729,6 +730,28 @@ $if(listings)$
 \definecolor{listing-string}{HTML}{00999A}
 \definecolor{listing-comment}{HTML}{8E8E8E}
 
+\usepackage{ifxetex,ifluatex}
+
+\newif\ifunicode
+\ifxetex\unicodetrue\fi
+\ifluatex\unicodetrue\fi
+
+\ifunicode
+  \usepackage[verbose]{newunicodechar}
+  \newcommand{\DeclareUnicodeCharacter}[2]{%
+    \begingroup\lccode`|=\string"#1\relax
+    \lowercase{\endgroup\newunicodechar{|}}{#2}%
+  }
+\else
+  \usepackage[utf8]{inputenc}
+\fi
+\usepackage{pifont} 
+
+\DeclareUnicodeCharacter{2663}{\ding{168}} % '♣' BLACK CLUB SUIT (U+2663)
+\DeclareUnicodeCharacter{2666}{\ding{169}} % '♦' BLACK DIAMOND SUIT (U+2666)
+\DeclareUnicodeCharacter{2665}{\ding{170}} % '♥' BLACK HEART SUIT (U+2665)
+\DeclareUnicodeCharacter{2660}{\ding{171}} % '♠' BLACK SPADE SUIT (U+2660)
+
 \lstdefinestyle{eisvogel_listing_style}{
   language         = java,
 $if(listings-disable-line-numbers)$
@@ -780,6 +803,7 @@ $endif$
   {»}{{\guillemotright}}1 {ñ}{{\~n}}1 {Ñ}{{\~N}}1 {¿}{{?`}}1
   {…}{{\ldots}}1 {≥}{{>=}}1 {≤}{{<=}}1 {„}{{\glqq}}1 {“}{{\grqq}}1
   {”}{{''}}1
+  % {❤️}{\ding{168}}}1 {♦️}{\ding{169}}1 {♠️}{\ding{170}}1 {♣️}{\ding{171}}1 
 }
 \lstset{style=eisvogel_listing_style}
 
