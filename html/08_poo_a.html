@@ -88,7 +88,7 @@
 <p class="author">Xavier André &amp; Romain Tavenard</p>
 </header>
 <h1 data-number="1" id="rappel-organisation-de-votre-code"><span class="header-section-number">1</span> Rappel : organisation de votre code</h1>
-<p>Pour ce TD, vous créerez un nouveau fichier <code>td_poo.py</code>. Dans ce fichier, votre code sera organisé de la manière suivante :</p>
+<p>Pour ce TD, vous créerez un nouveau fichier <code>td_poo_b.py</code>. Dans ce fichier, votre code sera organisé de la manière suivante :</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Imports</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> abc <span class="im">import</span> ABC, abstractmethod, abstractproperty</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -137,43 +137,6 @@
 <li><code>__sub__(self, other)</code> retourne la fraction différence ;</li>
 <li><code>__mul__(self, other)</code> retourne la fraction produit.</li>
 </ul></li>
-</ol>
-<h1 data-number="4" id="héritage-surcharge-et-polymorphisme"><span class="header-section-number">4</span> Héritage, surcharge et polymorphisme</h1>
-<h2 data-number="4.1" id="compte-bancaire-simple"><span class="header-section-number">4.1</span> Compte bancaire simple</h2>
-<p>Nous nous intéressons ici à un compte simple caractérisé par un solde exprimé en Euros qui peut être positif ou négatif.</p>
-<ol type="1">
-<li><p>Créez une classe <code>CompteSimple</code> respectant les caractéristiques ci-dessus.</p></li>
-<li><p>Surchargez la méthode <code>__repr__()</code> afin d’obtenir l’affichage suivant :</p>
-<blockquote>
-<p>Le solde du compte est de XXX Euro(s).</p>
-</blockquote></li>
-<li><p>Créez une méthode <code>enregistrerOperation()</code> qui permet de créditer le compte ou de le débiter.</p></li>
-<li><p>Testez cette classe.</p></li>
-</ol>
-<h2 data-number="4.2" id="compte-bancaire-courant"><span class="header-section-number">4.2</span> Compte bancaire courant</h2>
-<p>Une banque conserve pour chaque compte l’historique des opérations qui le concernent (on se limite ici aux opérations de crédits et de débits). On souhaite modéliser un tel compte qu’on appelle compte courant. En plus des méthodes d’un compte simple, un compte courant offre les méthodes suivantes :</p>
-<ul>
-<li><code>afficherReleve</code> : affiche l’ensemble des opérations effectuées ;</li>
-<li><code>afficherReleveCredits</code> : affiche seulement les opérations de crédit ;</li>
-<li><code>afficherReleveDebits</code> : affiche seulement les opérations de débit.</li>
-</ul>
-<p>Pour représenter l’historique, on utilisera une liste. Pour enregistrer une opération, on conservera simplement le montant de l’opération (Crédit : positif ; Débit : négatif).</p>
-<ol type="1">
-<li><p>Créez la classe <code>CompteCourant</code> correspondant aux spécifications ci-dessus.</p></li>
-<li><p>Testez cette classe.</p></li>
-<li><p>Ajoutez des attributs calculés <code>releveCredits</code> et <code>releveDebits</code> et mettez à jour les méthodes <code>afficherReleveCredits</code> et <code>afficherReleveDebits</code> pour qu’elles reposent sur ces attributs.</p></li>
-</ol>
-<h1 data-number="5" id="classe-abstraite"><span class="header-section-number">5</span> Classe abstraite</h1>
-<p>On reprend maintenant l’exemple de la classe <code>Intervalle</code> définie plus haut. On souhaite être capable de prendre en compte deux types d’intervalles : les intervalles ouverts (pour lesquels les bornes ne sont pas incluses dans l’intervalles) et les intervalles fermés.</p>
-<ol type="1">
-<li><p>Définissez une classe <code>IntervalleAbstrait</code> qui hérite de la classe <code>ABC</code> et contient deux méthodes :</p>
-<ul>
-<li>une méthode <code>__init__</code> qui prend en entrée les deux bornes de l’intervalle,</li>
-<li>une méthode <code>__repr__</code>,</li>
-<li>une méthode abstraite <code>__contains__</code> qui indique si une valeur passée en argument est considérée comme faisant partie de l’intervalle ou non.</li>
-</ul></li>
-<li><p>Définissez une classe <code>IntervalleOuvert</code> qui hérite de <code>IntervalleAbstrait</code> en ne redéfinissant que la ou les méthodes strictement nécessaire(s).</p></li>
-<li><p>Définissez une classe <code>IntervalleFerme</code> qui hérite de <code>IntervalleAbstrait</code> en ne redéfinissant que la ou les méthodes strictement nécessaire(s).</p></li>
 </ol>
 </body>
 </html>
