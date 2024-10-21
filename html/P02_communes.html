@@ -5,7 +5,7 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta name="author" content="Xavier Andr&#xE9; &amp; Romain Tavenard" />
-  <title>Projet Cluedo</title>
+  <title>Projet Week-end</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -84,7 +84,7 @@
 </head>
 <body>
 <header id="title-block-header">
-<h1 class="title">Projet Cluedo</h1>
+<h1 class="title">Projet Week-end</h1>
 <p class="author">Xavier Andr&#xE9; &amp; Romain Tavenard</p>
 </header>
 <h1 data-number="1" id="pr&#xE9;ambule"><span class="header-section-number">1</span> Pr&#xE9;ambule</h1>
@@ -106,18 +106,15 @@
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;API_KEY&quot;</span><span class="fu">:</span> <span class="st">&quot;...&quot;</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
-<h1 data-number="2" id="lenqu&#xEA;te"><span class="header-section-number">2</span> L&#x2019;enqu&#xEA;te</h1>
-<p>Le 16 Octobre 2023, &#xE0; 16h23, un crime a &#xE9;t&#xE9; commis &#xE0; l&#x2019;UFR Sciences Sociales de l&#x2019;Universit&#xE9; de Rennes 2. Trois suspects ont &#xE9;t&#xE9; cibl&#xE9;s gr&#xE2;ce aux premiers &#xE9;l&#xE9;ments de l&#x2019;enqu&#xEA;te. Votre r&#xF4;le sera de d&#xE9;terminer si leur activit&#xE9; sur les reseaux sociaux est coh&#xE9;rente ou non avec leur pr&#xE9;sence sur les lieux du crime &#xE0; l&#x2019;heure dite.</p>
-<p>Concr&#xE8;tement, votre programme devra afficher, pour chaque suspect list&#xE9; dans le fichier <a href="https://raw.githubusercontent.com/rtavenar/m1_python_ur2/main/modules_fournis/suspects.csv"><code>suspects.csv</code></a>, son <code>ID</code>, son adresse e-mail et s&#x2019;il est possible ou non, d&#x2019;apr&#xE8;s les traces laiss&#xE9;es sur les r&#xE9;seaux sociaux, qu&#x2019;il ait commis le crime.</p>
-<p>Pour mener &#xE0; bien votre mission, vous pourrez utiliser (outre votre intelligence) :</p>
+<h1 data-number="2" id="le-probl&#xE8;me"><span class="header-section-number">2</span> Le probl&#xE8;me</h1>
+<p>Des amis souhaitent se retrouver pour passer un week-end ensemble. Ils comptent pour cela louer un g&#xEE;te mais, n&#x2019;habitant pas tous au m&#xEA;me endroit, se demandent dans quelle commune louer ce g&#xEE;te. Vous devez &#xE9;crire un programme Python qui leur permette de se d&#xE9;cider sur le lieu de location, en respectant les contraintes suivantes :</p>
 <ul>
-<li>le <em>package</em> <code>graphh</code> pour calculer des temps de trajet th&#xE9;oriques (notez qu&#x2019;on ne sait pas si les suspects se sont d&#xE9;plac&#xE9;s &#xE0; pied, en v&#xE9;lo ou encore en voiture : il vous faudra envisager toutes les possibilit&#xE9;s),</li>
-<li>le <em>package</em> <code>datetime</code> pour la gestion des dates et des temps &#xE9;coul&#xE9;s entre deux dates (un chapitre y est d&#xE9;di&#xE9; dans le poly, n&#x2019;h&#xE9;sitez pas &#xE0; vous y r&#xE9;f&#xE9;rer).</li>
+<li>le g&#xEE;te devra se trouver sur une commune de plus de 20 000 habitants ;</li>
+<li>le g&#xEE;te devra se trouver dans l&#x2019;un des d&#xE9;partements suivants : Ille-et-Vilaine (35), Mayenne (53), C&#xF4;tes-d&#x2019;Armor (22), Sarthe (72) ou Morbihan (56) ;</li>
+<li>les adresses des amis peuvent &#xEA;tre obtenues via une API dont l&#x2019;URL est la suivante : <a href="https://my-json-server.typicode.com/rtavenar/fake_api/adresses_amis" class="uri">https://my-json-server.typicode.com/rtavenar/fake_api/adresses_amis</a>.</li>
 </ul>
-<p>De plus, pour simuler les posts Twitter et Snapchat, vous utiliserez les donn&#xE9;es disponibles &#xE0; ces adresses :</p>
-<ul>
-<li><a href="https://my-json-server.typicode.com/rtavenar/fake_api/twitter_posts" class="uri">https://my-json-server.typicode.com/rtavenar/fake_api/twitter_posts</a></li>
-<li><a href="https://my-json-server.typicode.com/rtavenar/fake_api/snapchat_posts" class="uri">https://my-json-server.typicode.com/rtavenar/fake_api/snapchat_posts</a></li>
-</ul>
+<p>Les amis, soucieux de l&#x2019;avenir de leur plan&#xE8;te, se sont mis d&#x2019;accord pour utiliser le v&#xE9;lo comme unique moyen de transport entre leur domicile et le g&#xEE;te. Ils se sont aussi mis d&#x2019;accord pour choisir un g&#xEE;te qui minimise le temps de trajet maximal, c&#x2019;est-&#xE0;-dire le temps de trajet de l&#x2019;ami qui devra passer le plus de temps sur son v&#xE9;lo pour aller de chez lui au g&#xEE;te.</p>
+<p>Vous ne devrez pas vous assurer de l&#x2019;existence d&#x2019;un g&#xEE;te sur la commune que vous aurez s&#xE9;lectionn&#xE9;e : il s&#x2019;agit donc uniquement de trouver la commune, parmi celles qui v&#xE9;rifient les contraintes ci-dessus, qui minimise le crit&#xE8;re &#xE9;nonc&#xE9; ci-dessus.</p>
+<p>Il vous revient de trouver les sources de donn&#xE9;es <em>Open Data</em> n&#xE9;cessaires &#xE0; la r&#xE9;alisation de ce projet, sachant que ces sources de donn&#xE9;es doivent pouvoir s&#x2019;interroger via une API, pour que le rendu du script Python seul suffise &#xE0; l&#x2019;ex&#xE9;cution de votre programme (pas de d&#xE9;p&#xF4;t de fichier de donn&#xE9;es suppl&#xE9;mentaire autoris&#xE9;).</p>
 </body>
 </html>
