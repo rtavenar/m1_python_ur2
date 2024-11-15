@@ -1,5 +1,5 @@
 ---
-title : "Projet Cluedo"
+title : "Projet Différentiation automatique"
 language: fr
 author: "Xavier André & Romain Tavenard"
 rights: "Creative Commons CC BY-NC-SA"
@@ -8,11 +8,17 @@ rights: "Creative Commons CC BY-NC-SA"
 # Préambule
 
 Pour ce projet, vous devrez travailler par groupes de 2 ou 3 et votre rendu se fera sous la forme d'un fichier Python.
-Ce fichier devra être nommé `P03.py` et contenir les noms et numéros étudiant de tous les membres du groupe commentés, en en-tête du fichier, comme dans l'exemple suivant :
+Ce fichier devra être nommé `P03.py` et contenir, sous la forme de commentaires dans l'en-tête du fichier :
+
+* les noms et numéros étudiant de tous les membres du groupe ;
+* en cas d'usage de ChatGPT ou d'un autre assistant, un lien vers la session utilisée pour s'aider (lien "Share Chat" en haut à droite de la fenêtre ChatGPT)
+
+comme dans l'exemple suivant :
 
 ```python
 # 22000002 Paul Machin
 # 22000227 Yolène Truc
+# ChatGPT https://chat.openai.com/share/04760567-235e-40a4-b60d-330877b57e
 
 # Section 1 : les imports
 # [...]
