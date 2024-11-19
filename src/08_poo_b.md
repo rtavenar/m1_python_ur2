@@ -7,12 +7,12 @@ rights: "Creative Commons CC BY-NC-SA"
 
 # Rappel : organisation de votre code
 
-Pour ce TD, vous créerez un nouveau fichier `td_poo.py`.
+Pour ce TD, vous créerez un nouveau fichier `td_poo_b.py`.
 Dans ce fichier, votre code sera organisé de la manière suivante :
 
 ```python
 # Imports
-from abc import ABC, abstractmethod, abstractproperty
+from abc import ABC, abstractmethod
 
 # Classes et Fonctions
 class [...]

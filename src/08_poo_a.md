@@ -7,7 +7,7 @@ rights: "Creative Commons CC BY-NC-SA"
 
 # Rappel : organisation de votre code
 
-Pour ce TD, vous créerez un nouveau fichier `td_poo_b.py`.
+Pour ce TD, vous créerez un nouveau fichier `td_poo.py`.
 Dans ce fichier, votre code sera organisé de la manière suivante :
 
 ```python
