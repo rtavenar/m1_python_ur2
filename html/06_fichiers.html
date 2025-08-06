@@ -34,16 +34,13 @@
 <h1 data-number="2" id="extraction-dinformations-&#xE9;l&#xE9;mentaires"><span class="header-section-number">2</span> Extraction d&#x2019;informations &#xE9;l&#xE9;mentaires</h1>
 <p>Dans la suite de ce sujet, on nomme &#x201C;restaurant&#x201D; chaque dictionnaire issu du fichier JSON. Les questions suivantes n&#xE9;cessitent de manipuler les donn&#xE9;es depuis Python et le code produit devra &#xEA;tre inclus dans un nouveau fichier <code>td6.py</code>.</p>
 <ol type="1">
-<li><p>Charger le contenu du fichier <code>NYfood.json</code> dans une liste de dictionnaires, chaque dictionnaire repr&#xE9;sentant un restaurant.</p></li>
-<li><p>Combien y a-t-il de restaurants dans ce fichier ?</p></li>
-<li><p>Combien y a-t-il de restaurants situ&#xE9;s &#xE0; Manhattan list&#xE9;s dans ce fichier ?</p></li>
-<li><p>&#xC9;crire une fonction qui prend en entr&#xE9;e la liste des restaurants et retourne une liste sans doublon des quartiers dans lesquels se situent les restaurants list&#xE9;s dans ce fichier.</p></li>
-<li><p>&#xC9;crire une fonction qui prend en entr&#xE9;e la liste des restaurants et affiche, pour chaque restaurant du quartier &#x201C;Manhattan&#x201D;, un r&#xE9;capitulatif de la forme</p>
-<p><code>"nom_du_restaurant: adresse"</code></p>
-<p>o&#xF9; l&#x2019;adresse est compos&#xE9;e de</p>
-<p><code>"building, street, zipcode New York, USA"</code></p></li>
-<li><p>Quel est le nombre total de notes attribu&#xE9;es aux restaurants du fichier ?</p></li>
-<li><p>Quelles sont les valeurs possibles de notes attribu&#xE9;es aux restaurants par les &#xE9;valuateurs ?</p></li>
+<li>Charger le contenu du fichier <code>NYfood.json</code> dans une liste de dictionnaires, chaque dictionnaire repr&#xE9;sentant un restaurant. Combien y a-t-il de restaurants dans ce fichier ?</li>
+<li>Combien y a-t-il de types de cuisine (<code>cuisine</code>) diff&#xE9;rents dans ce fichier&#x202F;? Afficher la liste des types de cuisine pr&#xE9;sents.</li>
+<li>&#xC9;crire une fonction qui prend en entr&#xE9;e la liste des restaurants et retourne une liste des noms de restaurants ayant re&#xE7;u au moins une note &#x201C;A&#x201D;.</li>
+<li>&#xC9;crire une fonction qui prend en entr&#xE9;e la liste des restaurants et affiche, pour chaque restaurant dont le nom commence par la lettre &#x201C;S&#x201D;, son nom et son type de cuisine.</li>
+<li>Quel est le nombre total de restaurants dont le code postal (<code>zipcode</code>) commence par &#x201C;10&#x201D;&#x202F;?</li>
+<li>Quelles sont les valeurs possibles du sous-attribut <code>date</code> de l&#x2019;attribut <code>grades</code> (date d&#x2019;attribution de la note) pour les restaurants ayant re&#xE7;u une note &#x201C;B&#x201D;&#x202F;?</li>
+<li>&#xC9;crire une fonction qui prend en entr&#xE9;e la liste des restaurants et retourne un dictionnaire associant chaque type de cuisine au nombre de restaurants correspondant.</li>
 </ol>
 <h1 data-number="3" id="export-au-format-csv"><span class="header-section-number">3</span> Export au format CSV</h1>
 <p>Dans cette partie, il va s&#x2019;agir d&#x2019;enregistrer un export du contenu du fichier <code>NYfood.json</code> au format CSV, en s&#x2019;assurant donc que l&#x2019;on n&#x2019;ait plus d&#x2019;attributs imbriqu&#xE9;s.</p>
