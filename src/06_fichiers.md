@@ -20,19 +20,14 @@ Dans ce TD, on se tourne vers un jeu de données recensant des notes attribuées
 Dans la suite de ce sujet, on nomme "restaurant" chaque dictionnaire issu du fichier JSON.
 Les questions suivantes nécessitent de manipuler les données depuis Python et le code produit devra être inclus dans un nouveau fichier `td6.py`.
 
-1. Charger le contenu du fichier `NYfood.json` dans une liste de dictionnaires, chaque dictionnaire représentant un restaurant.
-2. Combien y a-t-il de restaurants dans ce fichier ?
-3. Combien y a-t-il de restaurants situés à Manhattan listés dans ce fichier ?
-4. Écrire une fonction qui prend en entrée la liste des restaurants et retourne une liste sans doublon des quartiers dans lesquels se situent les restaurants listés dans ce fichier.
-5. Écrire une fonction qui prend en entrée la liste des restaurants et affiche, pour chaque restaurant du quartier "Manhattan", un récapitulatif de la forme 
-    
-    `"nom_du_restaurant: adresse"` 
-    
-    où l'adresse est composée de 
-    
-    `"building, street, zipcode New York, USA"`
-6. Quel est le nombre total de notes attribuées aux restaurants du fichier ?
-7. Quelles sont les valeurs possibles de notes attribuées aux restaurants par les évaluateurs ?
+
+1. Charger le contenu du fichier `NYfood.json` dans une liste de dictionnaires, chaque dictionnaire représentant un restaurant. Combien y a-t-il de restaurants dans ce fichier ?
+2. Combien y a-t-il de types de cuisine (`cuisine`) différents dans ce fichier ? Afficher la liste des types de cuisine présents.
+3. Écrire une fonction qui prend en entrée la liste des restaurants et retourne une liste des noms de restaurants ayant reçu au moins une note "A".
+4. Écrire une fonction qui prend en entrée la liste des restaurants et affiche, pour chaque restaurant dont le nom commence par la lettre "S", son nom et son type de cuisine.
+5. Quel est le nombre total de restaurants dont le code postal (`zipcode`) commence par "10" ?
+6. Quelles sont les valeurs possibles du sous-attribut `date` de l'attribut `grades` (date d'attribution de la note) pour les restaurants ayant reçu une note "B" ?
+7. Écrire une fonction qui prend en entrée la liste des restaurants et retourne un dictionnaire associant chaque type de cuisine au nombre de restaurants correspondant.
 
 # Export au format CSV
 

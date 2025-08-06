@@ -9,42 +9,47 @@ def lecture_json(dossier, nom_fichier, encodage="utf-8"):
     fp = open(nom_complet, "r", encoding=encodage)
     return json.load(fp)
 
-def comptage_critere(liste_json, cle, valeur):
-    effectif = 0
-    for item in liste_json:
-        if item[cle] == valeur:
-            effectif+=1
-    return effectif
-
 def lexique_critere(liste_json, cle):
     liste_valeur = []
     for item in liste_json:
         liste_valeur.append(item[cle])
     return set(liste_valeur)
 
-def filtrage_restaurant(restaurants, quartier):
-    for restaurant in restaurants:
-        if restaurant["borough"] == quartier:
-            print(f'{restaurant["name"]}: {restaurant["address"]["building"]}, {restaurant["address"]["street"]}, {restaurant["address"]["zipcode"]} New York, USA')
-
-def comptage_notes(restaurants):
-    effectif = 0
-    for restaurant in restaurants:
-        effectif += len(restaurant["grades"])
-    return effectif
-
-def valeurs_possibles_notes(restaurants):
-    liste_valeurs_notes= []
+def restaurants_A(restaurants):
+    liste_noms = []
     for restaurant in restaurants:
         for note in restaurant["grades"]:
-            liste_valeurs_notes.append(note["grade"])
-    return set(liste_valeurs_notes)
+            if note["grade"] == "A":
+                liste_noms.append(restaurant["name"])
+                break
+    return liste_noms
+
+def affiche_restaurants_S(restaurants):
+    for restaurant in restaurants:
+        if restaurant["name"].startswith("S"):
+            print(f"{restaurant['name']} ({restaurant['borough']}) : {restaurant['cuisine']}")
+
+def dates_notes(restaurants):
+    liste_valeurs_dates= []
+    for restaurant in restaurants:
+        for note in restaurant["grades"]:
+            liste_valeurs_dates.append(note["date"])
+    return set(liste_valeurs_dates)
 
 def restaurants_grades_a_plat(restaurants):
     for restaurant in restaurants:
         restaurant["n_grades"] = len(restaurant["grades"])
         del restaurant["grades"]
     return restaurants
+
+def compte_par_cuisine(restaurants):
+    compte = {}
+    for restaurant in restaurants:
+        cuisine = restaurant["cuisine"]
+        if cuisine not in compte:
+            compte[cuisine] = 0
+        compte[cuisine] += 1
+    return compte
 
 def restaurants_adresse_a_plat(restaurants):
     for restaurant in restaurants:
@@ -69,18 +74,23 @@ def export_json_to_csv(restaurants, nom_fichier_csv):
 dossier = "data"
 nom_fichier = "NYfood.json"
 restaurants = lecture_json(dossier, nom_fichier)
+print(len(restaurants))
 # Q2
-print(len(restaurants)) #142
+print(lexique_critere(restaurants, "cuisine"))
 # Q3
-print(comptage_critere(restaurants, "borough", "Manhattan")) #59
+print(restaurants_A(restaurants))
 # Q4
-print(lexique_critere(restaurants, "borough")) #{'Queens', 'Staten Island', 'Brooklyn', 'Bronx', 'Manhattan'}
+affiche_restaurants_S(restaurants)
 # Q5
-filtrage_restaurant(restaurants, "Manhattan")
+n = 0
+for resto in restaurants:
+    if resto["address"]["zipcode"].startswith("10"):
+        n += 1
+print(f"Le nombre de restaurants dont le code postal commence par 10 est {n}")
 # Q6
-print(comptage_notes(restaurants)) #523
+print(dates_notes(restaurants))
 # Q7
-print(valeurs_possibles_notes(restaurants)) #{'B', 'Z', 'C', 'A', 'P', 'Not Yet Graded'}
+print(compte_par_cuisine(restaurants))
 
 # 3 Export au format CSV
 # Q1
