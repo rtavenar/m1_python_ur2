@@ -28,7 +28,7 @@ def make_blobs(n_samples, centers, cluster_std):
     return X, y
 
 
-def lire_donnees(n_individus):
+def lire_donnees_numpy(n_individus):
     # Moyennes issues de https://liguecontrelobesite.org/actualite/taille-poids-et-tour-de-taille-photographie-2020-des-francais/
     X, y = make_blobs(n_samples=n_individus,
                       centers=[[164, 64], [177, 79]],
@@ -36,6 +36,13 @@ def lire_donnees(n_individus):
     y_str = np.empty(y.shape, dtype=str)
     y_str[y == 0] = "F"
     y_str[y == 1] = "H"
+    return X, y_str
+
+
+def lire_donnees(n_individus):
+    X, y_str = lire_donnees_numpy(n_individus)
+    X = X.tolist()
+    y_str = y_str.tolist()
     return X, y_str
 
 

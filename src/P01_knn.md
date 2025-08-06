@@ -73,6 +73,9 @@ Dans cette partie, vous tâcherez d'implémenter l'algorithme des $k$-plus proch
 ## Ré-implémentation des $k$-plus proches voisins en utilisant `numpy`
 
 Dans cette partie, il vous est demandé de fournir une nouvelle implémentation de l'algorithme des $k$-plus proche voisin en utilisant, autant que faire se peut, les fonctions des modules `numpy` et `scipy`.
+
+Rechargez donc vos données au format `numpy` en utilisant la fonction `lire_donnees_numpy`.
+
 Vous pourrez notamment utiliser les fonctions suivantes :
 
 * `cdist` du module `scipy.spatial.distance`
