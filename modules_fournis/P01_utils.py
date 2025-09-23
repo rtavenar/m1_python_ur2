@@ -47,11 +47,14 @@ def lire_donnees(n_individus):
 
 
 def visualiser_donnees(X, y, X_test=None, nom_fichier=None):
+    X_ = np.array(X)
+    y_ = np.array(y)
     plt.figure()
     for sexe in ["F", "H"]:
-        plt.scatter(X[y == sexe, 0], X[y == sexe, 1], label=sexe)
+        plt.scatter(X_[y_ == sexe, 0], X_[y_ == sexe, 1], label=sexe)
     if X_test is not None:
-        plt.scatter(X_test[:, 0], X_test[:, 1], marker="x", color="k")
+        X_test_ = np.array(X_test)
+        plt.scatter(X_test_[:, 0], X_test_[:, 1], marker="x", color="k")
     plt.xlabel("Taille")
     plt.ylabel("Poids")
     plt.legend(loc="upper left")
