@@ -34,7 +34,7 @@ et trouver l'API indiquant la position des bus de la STAR en temps réel.
 Cliquez sur l'onglet "API" pour accéder aux options de requête.
 Observez les valeurs que peut prendre l'attribut `etat`.
 
-2. Combien de résultats (`records`) retourne la requête proposée par défaut ? Et combien de
+2. Combien de résultats (`results`) retourne la requête proposée par défaut ? Et combien de
 résultats sont contenus dans la base (attribut `total_count`) ? Comment faire pour vous assurer 
 d'avoir tous les résultats lorsque vous formulez une requête ?
 
@@ -52,7 +52,7 @@ pprint(mon_joli_dictionnaire)
 chaque bus étant représenté par un dictionnaire qui contient les clés `numerobus`, `nomcourtligne`, 
 `destination`, `ecartsecondes` et `position`.
 Pour cela, consultez l'interface d'édition de requêtes de l'API de la STAR (celle que vous 
-avez trouvé à la question 1) et ajoutez la condition _refine_ pour que `etat` vaille `"En service"`, puis
+avez trouvé à la question 1) et ajoutez la condition _refine_ pour que `etat` vaille `"En ligne"`, puis
 notez l'URL générée (clic droit sur le lien du bas de la page, puis "Copier le lien").
 
 
