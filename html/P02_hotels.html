@@ -101,5 +101,32 @@
 <li>les adresses des amis peuvent &#xEA;tre obtenues via une API dont l&#x2019;URL est la suivante : <a href="https://my-json-server.typicode.com/rtavenar/fake_api/adresses_amis" class="uri">https://my-json-server.typicode.com/rtavenar/fake_api/adresses_amis</a> ;</li>
 <li>les h&#xF4;tels peuvent &#xEA;tre obtenus via l&#x2019;API <code>data.gouv.fr</code> via le lien <a href="https://tabular-api.data.gouv.fr/api/resources/3ce290bf-07ec-4d63-b12b-d0496193a535/data/" class="uri">https://tabular-api.data.gouv.fr/api/resources/3ce290bf-07ec-4d63-b12b-d0496193a535/data/</a>. Le programme devra afficher la liste des h&#xF4;tels disponibles dans la ville de chacun des amis, en indiquant pour chaque h&#xF4;tel son nom, son adresse et son nombre d&#x2019;&#xE9;toiles.</li>
 </ul>
+<h1 data-number="3" id="acc&#xE8;s-aux-donn&#xE9;es"><span class="header-section-number">3</span> Acc&#xE8;s aux donn&#xE9;es</h1>
+<p>Pour acc&#xE9;der aux donn&#xE9;es de <code>data.gouv.fr</code>, vous devrez les t&#xE9;l&#xE9;charger &#x201C;page par page&#x201D;, car l&#x2019;API ne permet pas de r&#xE9;cup&#xE9;rer plus de 200 entr&#xE9;es par requ&#xEA;te, alors que la taille de la collection de donn&#xE9;es qui nous int&#xE9;resse d&#xE9;passe ce nombre.</p>
+<p>Nous vous proposons ci-dessous un squelette de code qui permette d&#x2019;effectuer cette pagination, vous &#xEA;tes libre de l&#x2019;utiliser ou non dans votre solution.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fetch_all_data(base_url):</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    all_rows <span class="op">=</span> []</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    page <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>        url <span class="op">=</span> <span class="ss">f&quot;</span><span class="sc">{</span>base_url<span class="sc">}</span><span class="ss">?page_size=200&amp;page=</span><span class="sc">{</span>page<span class="sc">}</span><span class="ss">&quot;</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>        response <span class="op">=</span> requests.get(url)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>        response.raise_for_status()</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>        data <span class="op">=</span> response.json()</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>        rows <span class="op">=</span> data.get(<span class="st">&quot;data&quot;</span>, [])</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="kw">not</span> rows:</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>            <span class="cf">break</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>        all_rows.extend(rows)</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Si moins de 200 lignes : derni&#xE8;re page</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="bu">len</span>(rows) <span class="op">&lt;</span> <span class="dv">200</span>:</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>            <span class="cf">break</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>        page <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> all_rows</span></code></pre></div>
 </body>
 </html>
