@@ -30,3 +30,36 @@ Vous devez écrire un programme Python qui leur permette de lister les hôtels e
 * les adresses des amis peuvent être obtenues via une API dont l'URL est la suivante : <https://my-json-server.typicode.com/rtavenar/fake_api/adresses_amis> ;
 * les hôtels peuvent être obtenus via l'API `data.gouv.fr` via le lien <https://tabular-api.data.gouv.fr/api/resources/3ce290bf-07ec-4d63-b12b-d0496193a535/data/>.
 Le programme devra afficher la liste des hôtels disponibles dans la ville de chacun des amis, en indiquant pour chaque hôtel son nom, son adresse et son nombre d'étoiles.
+
+# Accès aux données
+
+Pour accéder aux données de `data.gouv.fr`, vous devrez les télécharger "page par page", car l'API ne permet pas de récupérer plus de 200 entrées par requête, alors que la taille de la collection de données qui nous intéresse dépasse ce nombre.
+
+Nous vous proposons ci-dessous un squelette de code qui permette d'effectuer cette pagination, vous êtes libre de l'utiliser ou non dans votre solution.
+
+```python
+def fetch_all_data(base_url):
+    all_rows = []
+    page = 1
+    
+    while True:
+        url = f"{base_url}?page_size=200&page={page}"
+
+        response = requests.get(url)
+        response.raise_for_status()
+        data = response.json()
+
+        rows = data.get("data", [])
+        if not rows:
+            break
+
+        all_rows.extend(rows)
+
+        # Si moins de 200 lignes : dernière page
+        if len(rows) < 200:
+            break
+
+        page += 1
+
+    return all_rows
+```
